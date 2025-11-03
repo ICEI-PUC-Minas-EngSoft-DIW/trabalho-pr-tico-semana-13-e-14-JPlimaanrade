@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Novo Item - Deepwoken Fan Hub</title>
+    <link rel="stylesheet" href="/public/assets/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar bg-dark">
+            <div class="container-fluid d-flex align-items-center justify-content-start">
+                <a href="/public/index.html" class="d-flex align-items-center text-decoration-none">
+                    <img src="/public/assets/img/Logo/deepwoken logo.jpg" alt="Logo" width="70" height="70"
+                        class="align-text-top d-inline-block" style="border-radius: 10px;">
+                </a>
+                <h1 class="ms-2 mb-0 text-white " id="nomedosite">Deepwoken Fan Hub</h1>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5 bg-dark text-white p-2">
+        <h2 class="text-center mb-4">Criar Novo Item</h2>
+        <form id="formNovoItem" class="mx-auto" style="max-width: 800px;">
+            <div class="mb-3">
+                <label class="form-label">Título</label>
+                <input type="text" name="titulo" id="titulo" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Descrição</label>
+                <textarea name="descricao" id="descricao" class="form-control" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Imagem principal (URL)</label>
+                <input type="text" name="imagem" id="imagem" class="form-control">
+            </div>
+
+            <hr class="my-3">
+
+            <h5>Conteúdo do Detalhe</h5>
+            <div class="mb-3">
+                <label class="form-label">Dicas</label>
+                <textarea name="dicas" id="dicas" class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Curiosidades</label>
+                <textarea name="curiosidades" id="curiosidades" class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Reflexão</label>
+                <textarea name="reflexao" id="reflexao" class="form-control"></textarea>
+            </div>
+
+            <hr class="my-3">
+
+            <h5>Imagens relacionadas (até 5)</h5>
+            <div class="mb-3">
+                <div class="row g-2">
+                    <div class="col-12 col-md-6">
+                        <input type="text" name="imagem1" id="imagem1" class="form-control mb-1" placeholder="Imagem 1 URL">
+                        <input type="text" name="descimg1" id="descimg1" class="form-control mb-2" placeholder="Descrição imagem 1">
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <input type="text" name="imagem2" id="imagem2" class="form-control mb-1" placeholder="Imagem 2 URL">
+                        <input type="text" name="descimg2" id="descimg2" class="form-control mb-2" placeholder="Descrição imagem 2">
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <input type="text" name="imagem3" id="imagem3" class="form-control mb-1" placeholder="Imagem 3 URL">
+                        <input type="text" name="descimg3" id="descimg3" class="form-control mb-2" placeholder="Descrição imagem 3">
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <input type="text" name="imagem4" id="imagem4" class="form-control mb-1" placeholder="Imagem 4 URL">
+                        <input type="text" name="descimg4" id="descimg4" class="form-control mb-2" placeholder="Descrição imagem 4">
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <input type="text" name="imagem5" id="imagem5" class="form-control mb-1" placeholder="Imagem 5 URL">
+                        <input type="text" name="descimg5" id="descimg5" class="form-control mb-2" placeholder="Descrição imagem 5">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Criar Item</button>
+        </form>
+        <p id="status" class="text-center mt-3"></p>
+    </main>
+
+    <footer>
+        <div class="sobre">
+            <h2>Sobre</h2>
+            <p>Me chamo João Pedro, tenho 18 anos e estou criando este site: Deepwoken Fan Hub para que os jogadores
+                possam aprender mais sobre o jogo. Convido a vocês a entrarem no deepwoken e testarem o jogo, garanto
+                que é um jogo muito bom! Espero que gostem! </p>
+        </div>
+        <div class="autoria_e_social_media">
+            <h2>Autoria</h2>
+            <div class="autoria d-flex align-items-center " style="flex-wrap: wrap;">
+                <img src="/public/assets/img/Icones_de_Perfil/perfil.png" alt="Foto de Perfil do Aluno">
+                <ul>
+                    <li><b>Aluno:</b> João Pedro Lima de Andrade</li>
+                    <li><b>Curso:</b> Engenharia de Software</li>
+                    <li><b>Turma:</b> Manhã</li>
+                </ul>
+            </div>
+
+            <div class="social_media">
+                <h2>Redes Sociais:</h2>
+                <a href="https://www.instagram.com/joaoo._andrade/" target="_blank">
+                    <img src="/public/assets/img/Icones_de_Perfil/instagram_icon.png" alt="Instagram"
+                        class="instagram-icon">
+                </a>
+                <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-lima-de-andrade-ba1a31311/" target="_blank">
+                    <img src="/public/assets/img/Icones_de_Perfil/linkedin_icon.png" alt="Instagram"
+                        class="instagram-icon">
+                </a>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('formNovoItem').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+
+            // Objeto base (resumo do card)
+            const cardObj = {
+                titulo: form.titulo.value,
+                descricao: form.descricao.value,
+                imagem: form.imagem.value
+            };
+
+            // Campos extras para sobreocard
+            cardObj.dicas = form.dicas ? form.dicas.value : "";
+            cardObj.curiosidades = form.curiosidades ? form.curiosidades.value : "";
+            cardObj.reflexao = form.reflexao ? form.reflexao.value : "";
+
+            // Adiciona imagens relacionadas (usa name/id do form)
+            for (let i = 1; i <= 5; i++) {
+                const imgInput = form[`imagem${i}`];
+                const descInput = form[`descimg${i}`];
+                cardObj[`imagem${i}`] = imgInput ? imgInput.value : "";
+                cardObj[`descimg${i}`] = descInput ? descInput.value : "";
+            }
+
+            try {
+                // 1) Cria o card (endpoint /cards)
+                const resCard = await fetch('http://localhost:3000/cards', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(cardObj)
+                });
+
+                if (!resCard.ok) throw new Error('Erro ao criar card');
+
+                const createdCard = await resCard.json(); // contém o id criado
+
+                // 2) Cria o conteúdo completo em sobreocard com o mesmo id
+                const sobreObj = Object.assign({}, cardObj);
+                sobreObj.id = createdCard.id;
+
+                const resSobre = await fetch('http://localhost:3000/sobreocard', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(sobreObj)
+                });
+
+                if (!resSobre.ok) throw new Error('Erro ao criar sobreocard');
+
+                document.getElementById('status').textContent = "Item criado com sucesso!";
+                form.reset();
+                // opcional: redirecionar para index para ver o card criado
+                setTimeout(() => window.location.href = 'index.html', 800);
+            } catch (err) {
+                console.error(err);
+                document.getElementById('status').textContent = "Erro ao criar item.";
+            }
+        });
+    </script>
+</body>
+
+</html>
