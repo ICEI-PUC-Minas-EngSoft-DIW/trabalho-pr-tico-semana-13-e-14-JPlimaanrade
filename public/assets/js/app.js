@@ -48,31 +48,50 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <div class="card-body">
                     <h4 class="card-title">${item.titulo}</h4>
                     <p class="card-text">${item.descricao}</p>
-                    <a href="detalhe.html?id=${item.id}" class="btn btn-primary">Detalhes</a>
-                    <a href="editar.html?id=${item.id}" class="btn btn-warning">Editar</a>
-                    <button class="btn btn-danger btn-delete">Excluir</button>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <a href="detalhe.html?id=${item.id}" class="btn btn-primary btn-sm flex-grow-1">📖 Detalhes</a>
+                        <a href="editar.html?id=${item.id}" class="btn btn-warning btn-sm flex-grow-1">✏️ Editar</a>
+                        <button class="btn btn-danger btn-sm btn-delete" data-id="${item.id}">🗑️ Excluir</button>
+                    </div>
                 </div>
             `;
             cardsContainer.appendChild(card);
 
-            // --- DELETE FUNCTION ---
+            // --- DELETE FUNCTION (DELETA CARD + SOBREOCARD) ---
             const deleteBtn = card.querySelector(".btn-delete");
             deleteBtn.addEventListener("click", async () => {
-                const confirmar = confirm(`Deseja realmente excluir "${item.titulo}"?`);
+                const confirmar = confirm(`⚠️ Deseja realmente excluir "${item.titulo}"? Esta ação é irreversível!`);
                 if (confirmar) {
+                    deleteBtn.disabled = true;
+                    deleteBtn.textContent = "🔄 Deletando...";
+                    
                     try {
-                        const resDelete = await fetch(`http://localhost:3000/cards/${item.id}`, {
+                        // 1️⃣ Deleta o CARD
+                        const resDeleteCard = await fetch(`http://localhost:3000/cards/${item.id}`, {
                             method: "DELETE"
                         });
-                        if (resDelete.ok) {
-                            card.remove();
-                            alert("Item excluído com sucesso!");
+
+                        // 2️⃣ Deleta o SOBREOCARD (mesmo ID)
+                        const resDeleteSobre = await fetch(`http://localhost:3000/sobreocard/${item.id}`, {
+                            method: "DELETE"
+                        });
+
+                        if (resDeleteCard.ok || resDeleteSobre.ok) {
+                            card.style.opacity = "0.5";
+                            setTimeout(() => {
+                                card.remove();
+                            }, 300);
+                            alert("✅ Item excluído com sucesso!");
                         } else {
-                            alert("Erro ao excluir o item.");
+                            alert("❌ Erro ao excluir o item.");
+                            deleteBtn.disabled = false;
+                            deleteBtn.textContent = "🗑️ Excluir";
                         }
                     } catch (err) {
                         console.error("Erro ao excluir:", err);
-                        alert("Erro ao excluir o item.");
+                        alert("❌ Erro ao excluir o item. Veja o console.");
+                        deleteBtn.disabled = false;
+                        deleteBtn.textContent = "🗑️ Excluir";
                     }
                 }
             });

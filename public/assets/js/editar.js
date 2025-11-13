@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const id = getIdFromUrl();
   const form = document.getElementById("formEditar");
   const statusEl = document.getElementById("status");
+  const btnDeletar = document.getElementById("btnDeletar");
 
   if (!id) {
     alert("ID não fornecido na URL.");
@@ -114,8 +115,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
 
       if (!resCard.ok) {
-        // se PUT falhar (ex: 404), tenta POST (criar) sem id (JSON Server criará id numérico diferente)
-        // para manter IDs, fazemos POST com explicit id (se o id for string, isso funciona)
+        // se PUT falhar (ex: 404), tenta POST (criar)
         const createCard = Object.assign({ id: id }, updatedCard);
         resCard = await fetch(`http://localhost:3000/cards`, {
           method: "POST",
@@ -142,14 +142,54 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!resSobre.ok) throw new Error("Falha ao criar sobreocard");
       }
 
-      statusEl && (statusEl.textContent = "Salvo com sucesso!");
+      statusEl && (statusEl.textContent = "✅ Salvo com sucesso!");
       setTimeout(() => {
-        window.location.href = `detalhes.html?id=${encodeURIComponent(id)}`;
+        window.location.href = `/public/index.html`;
       }, 700);
     } catch (err) {
       console.error("Erro ao salvar:", err);
-      statusEl && (statusEl.textContent = "Erro ao salvar. Veja console.");
+      statusEl && (statusEl.textContent = "❌ Erro ao salvar. Veja console.");
       alert("Erro ao salvar. Veja console para detalhes.");
     }
   });
+
+  // 🗑️ DELETAR: Remove tanto /cards/:id quanto /sobreocard/:id
+  if (btnDeletar) {
+    btnDeletar.addEventListener("click", async () => {
+      if (!confirm("⚠️ Tem certeza que deseja deletar este item? Esta ação é irreversível!")) {
+        return;
+      }
+
+      statusEl && (statusEl.textContent = "Deletando...");
+
+      try {
+        // 1) Deleta o card
+        const resCard = await fetch(`http://localhost:3000/cards/${encodeURIComponent(id)}`, {
+          method: "DELETE"
+        });
+
+        if (!resCard.ok) {
+          console.warn("Card não encontrado para deletar (pode já ter sido removido)");
+        }
+
+        // 2) Deleta o sobreocard
+        const resSobre = await fetch(`http://localhost:3000/sobreocard/${encodeURIComponent(id)}`, {
+          method: "DELETE"
+        });
+
+        if (!resSobre.ok) {
+          console.warn("Sobreocard não encontrado para deletar (pode já ter sido removido)");
+        }
+
+        statusEl && (statusEl.textContent = "✅ Item deletado com sucesso!");
+        setTimeout(() => {
+          window.location.href = `/public/index.html`;
+        }, 700);
+      } catch (err) {
+        console.error("Erro ao deletar:", err);
+        statusEl && (statusEl.textContent = "❌ Erro ao deletar. Veja console.");
+        alert("Erro ao deletar. Veja console para detalhes.");
+      }
+    });
+  }
 });

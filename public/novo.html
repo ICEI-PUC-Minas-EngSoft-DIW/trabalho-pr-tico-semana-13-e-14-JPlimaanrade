@@ -128,65 +128,7 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('formNovoItem').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const form = e.target;
-
-            // Objeto base (resumo do card)
-            const cardObj = {
-                titulo: form.titulo.value,
-                descricao: form.descricao.value,
-                imagem: form.imagem.value
-            };
-
-            // Campos extras para sobreocard
-            cardObj.dicas = form.dicas ? form.dicas.value : "";
-            cardObj.curiosidades = form.curiosidades ? form.curiosidades.value : "";
-            cardObj.reflexao = form.reflexao ? form.reflexao.value : "";
-
-            // Adiciona imagens relacionadas (usa name/id do form)
-            for (let i = 1; i <= 5; i++) {
-                const imgInput = form[`imagem${i}`];
-                const descInput = form[`descimg${i}`];
-                cardObj[`imagem${i}`] = imgInput ? imgInput.value : "";
-                cardObj[`descimg${i}`] = descInput ? descInput.value : "";
-            }
-
-            try {
-                // 1) Cria o card (endpoint /cards)
-                const resCard = await fetch('http://localhost:3000/cards', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(cardObj)
-                });
-
-                if (!resCard.ok) throw new Error('Erro ao criar card');
-
-                const createdCard = await resCard.json(); // contém o id criado
-
-                // 2) Cria o conteúdo completo em sobreocard com o mesmo id
-                const sobreObj = Object.assign({}, cardObj);
-                sobreObj.id = createdCard.id;
-
-                const resSobre = await fetch('http://localhost:3000/sobreocard', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(sobreObj)
-                });
-
-                if (!resSobre.ok) throw new Error('Erro ao criar sobreocard');
-
-                document.getElementById('status').textContent = "Item criado com sucesso!";
-                form.reset();
-                // opcional: redirecionar para index para ver o card criado
-                setTimeout(() => window.location.href = 'index.html', 800);
-            } catch (err) {
-                console.error(err);
-                document.getElementById('status').textContent = "Erro ao criar item.";
-            }
-        });
-    </script>
+    <script src="assets/js/novo.js"></script>
 </body>
 
 </html>

@@ -96,10 +96,10 @@
       "imagem": "/public/assets/img/Cards/Layer2_Card.jpg"
     },
     {
-      "id": "8a3f",
-      "titulo": "teste1",
-      "descricao": "ooiiiiiiii",
-      "imagem": "assets/img/Cards/Builds_Card.png"
+      "titulo": "Minecraft",
+      "descricao": "Minecraft e um jogo daora",
+      "imagem": "assets/img/Cards/Builds_Card.png",
+      "id": "4f3e"
     }
   ],
   "sobreocard": [
@@ -332,23 +332,23 @@
       "descimg5": "Jogador preso na Layer 2 Floor 1 sem o Ligthook — para ele, o fim será inevitável."
     },
     {
-      "id": "8a3f",
-      "titulo": "teste1",
-      "descricao": "xd",
+      "id": "4f3e",
+      "titulo": "Minecraft",
+      "descricao": "Minecraft e um jogo daora",
       "imagem": "assets/img/Cards/Builds_Card.png",
-      "dicas": "asd",
-      "curiosidades": "asd",
-      "reflexao": "sda",
-      "imagem1": "asd",
-      "descimg1": "asd",
-      "imagem2": "asd",
-      "descimg2": "asd",
-      "imagem3": "asd",
-      "descimg3": "asdasdasd",
-      "imagem4": "asd",
-      "descimg4": "asd",
-      "imagem5": "asd",
-      "descimg5": "asd"
+      "dicas": "Minecraft e um jogo daora de verdade",
+      "curiosidades": "Minecraft e um jogo daora e eu gosto muito",
+      "reflexao": "Minecraft e um jogo daora mas as vezes e chato demais",
+      "imagem1": "assets/img/Cards/Builds_Card.png",
+      "descimg1": "Minecraft e um jogo daora",
+      "imagem2": "assets/img/Cards/Builds_Card.png",
+      "descimg2": "Minecraft e um jogo daora",
+      "imagem3": "assets/img/Cards/Builds_Card.png",
+      "descimg3": "Minecraft e um jogo daora",
+      "imagem4": "assets/img/Cards/Builds_Card.png",
+      "descimg4": "Minecraft e um jogo daora",
+      "imagem5": "assets/img/Cards/Builds_Card.png",
+      "descimg5": "Minecraft e um jogo daora"
     }
   ]
 }
