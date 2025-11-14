@@ -9,15 +9,16 @@ Sugerimos o uso das seguintes ferramentas acessíveis: [FullCalendar](https://fu
 
 ## Informações do trabalho
 
-- Nome:
-- Matricula:
-- Proposta de projeto escolhida:
-- Breve descrição sobre seu projeto:
+- Nome: João Pedro Lima de Andrade
+- Matricula: 885317
+- Proposta de projeto escolhida:  5. Temas e Conteúdos Associados.
+- Breve descrição sobre seu projeto: Deepwoken Fan Hub será uma aplicação web criada para a comunidade de deepwoken, onde será possivel visualizar informações importantes sobre o jogo, e os jogadores poderao interagir entre si de diversas maneiras.
 
 **Print da tela com a implementação**
 
-<< Coloque aqui uma breve explicação da implementação feita nessa etapa>>
+ Foi implementado gráficos que mostram alguns dados relevantes da minha aplicação web, como, a quantidade de conteúdo médio ( por 100 caracteres ) bem como o tipo dos conteúdos ( por gráfico de pizza) e um que mostra a quantidade de conteúdo em relação ao tempo, tudo dinanico, ao criar um novo item os graficos mudam.
 
 <<  COLOQUE A IMAGEM TELA 1 AQUI >>
-
+![alt text](public/assets/img/Screenshots/screencapture-127-0-0-1-5500-public-apresentacao-html-2025-11-13-20_48_54.png)
 <<  COLOQUE A IMAGEM TELA 2 AQUI >>
+![alt text](public/assets/img/Screenshots/screencapture-127-0-0-1-5500-public-apresentacao-html-2025-11-13-20_52_09.png)
